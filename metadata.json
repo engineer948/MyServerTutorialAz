@@ -1,0 +1,6 @@
+{
+  "name": "MyServerTutorialAz",
+  "description": "Azərbaycan dilində self-hosting, server quraşdırılması (Ubuntu və Fedora), CasaOS və şəxsi bulud xidmətləri üçün əhatəli rəhbərlik mərkəzi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

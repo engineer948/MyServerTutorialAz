@@ -369,3 +369,49 @@ a:focus-visible, button:focus-visible, .nav-link:focus-visible {
   .brand { font-size: .95rem; }
 }
 
+/* ==========================================================================
+   ƏLAVƏ — "Haqqımızda" səhifəsi üçün
+   ========================================================================== */
+
+/* ---- Sərbəst mətn bloku (özün yaza biləcəyin hissə) ---- */
+.prose { max-width: 68ch; }
+.prose p { color: var(--ink); font-size: 1rem; margin-bottom: 16px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose h3 { margin: 30px 0 10px; }
+.prose strong { color: var(--ink); }
+
+/* ---- Sosial / əlaqə kartları (GitHub, YouTube, Discord) ---- */
+.social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.social-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 18px;
+  transition: border-color .18s ease, transform .18s ease;
+}
+.social-card:hover { border-color: var(--copper); transform: translateY(-2px); }
+.social-card:hover .social-icon { color: var(--copper); border-color: color-mix(in srgb, var(--copper) 45%, var(--border)); }
+
+.social-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  transition: color .18s ease, border-color .18s ease;
+}
+.social-icon svg { width: 20px; height: 20px; }
+
+.social-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.social-name { font-family: var(--font-display); font-weight: 700; font-size: .96rem; }
+.social-handle {
+  font-family: var(--font-mono); font-size: .78rem; color: var(--ink-dim);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .social-grid { grid-template-columns: 1fr; }
+}

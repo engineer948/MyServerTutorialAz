@@ -368,3 +368,53 @@ a:focus-visible, button:focus-visible, .nav-link:focus-visible {
   .nav-link { padding: 7px 10px; font-size: .82rem; }
   .brand { font-size: .95rem; }
 }
+/* ---- Minimal Haqqımızda Portları ---- */
+.minimal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mini-port {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.mini-port:hover {
+  border-color: var(--copper);
+  transform: translateY(-1px);
+}
+
+.mini-port .port-name {
+  font-family: var(--font-mono);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+/* LED Port Rəngləri */
+.port-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px currentColor;
+}
+.led-youtube { color: #FF0000; background: #FF0000; }
+.led-github { color: var(--ink); background: var(--ink); }
+.led-instagram { color: #E1306C; background: #E1306C; }
+.led-email { color: var(--wire); background: var(--wire); }
+
+@media (max-width: 480px) {
+  .minimal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

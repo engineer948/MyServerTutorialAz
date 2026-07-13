@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Debian Server Necə Qurulur? + Cockpit Panel | MyServerTutorialAz</title>
-<meta name="description" content="Debian Server-i sıfırdan quraşdırmaq və hazır gələn Cockpit veb panelindən istifadə etmək üçün addım-addım dərslik. Terminal komandaları və Azərbaycan dilində tam bələdçi.">
-<meta name="keywords" content="Debian Server quraşdırma, Debian Server dərslik, Cockpit Debian, ev serveri, self hosting Azərbaycan">
+<title>Debian Server Necə Qurulur? + CasaOS və Cockpit | MyServerTutorialAz</title>
+<meta name="description" content="Debian Server-i sıfırdan quraşdırmaq, Cockpit panel və CasaOS bulud sistemini inteqrasiya etmək üçün addım-addım dərslik. Terminal komandaları və Azərbaycan dilində tam bələdçi.">
+<meta name="keywords" content="Debian Server quraşdırma, Debian Server dərslik, CasaOS Debian, Cockpit Debian, ev serveri, self hosting Azərbaycan">
 <meta name="author" content="MyServerTutorialAz">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ozserver.az/debian.html">
@@ -13,8 +13,8 @@
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="az_AZ">
-<meta property="og:title" content="Debian Server Necə Qurulur? + Cockpit Panel">
-<meta property="og:description" content="Sıfırdan Debian Server quraşdırma və Cockpit ilə ev serveri idarə etmə dərsliyi — Azərbaycan dilində.">
+<meta property="og:title" content="Debian Server Necə Qurulur? + CasaOS və Cockpit">
+<meta property="og:description" content="Sıfırdan Debian Server quraşdırma, Cockpit və CasaOS ilə ev serveri idarə etmə dərsliyi — Azərbaycan dilində.">
 <meta property="og:url" content="https://ozserver.az/debian.html">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -43,13 +43,13 @@
 
 <header class="page-head">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span>UNIT · FEDORA SERVER</div>
+    <div class="eyebrow"><span class="dot"></span>UNIT · DEBIAN SERVER</div>
     <h1>Debian Server necə qurulur?</h1>
-    <p class="lead">Sıfırdan Debian Server quraşdırılması və üzərində hazır gələn Cockpit veb panelindən istifadə edərək serverini brauzerdən idarə etmək — komandaları ilə birgə, addım-addım.</p>
+    <p class="lead">Sıfırdan stabil Debian Server quraşdırılması, sistem idarəetməsi üçün Cockpit paneli və ev serverini mükəmməl multimedia/bulud mərkəzinə çevirən CasaOS-in addım-addım qurulması.</p>
     <div class="page-head-meta">
       <span class="badge badge-mid">Çətinlik: Orta</span>
-      <span class="badge">Təxmini vaxt: ~25 dəqiqə</span>
-      <span class="badge">Lazımdır: köhnə kompüter/mini PC, min. 4GB USB</span>
+      <span class="badge">Təxmini vaxt: ~35 dəqiqə</span>
+      <span class="badge">Lazımdır: Mini PC / köhnə kompüter, min. 4GB USB</span>
     </div>
   </div>
 </header>
@@ -57,10 +57,8 @@
 <section>
   <div class="container">
     <div class="video-slot">
-      <div class="video-slot-label">▶ Video Bələdçi — Debian Server Quraşdırılması</div>
+      <div class="video-slot-label">▶ Video Bələdçi — Debian Server + CasaOS Quraşdırılması</div>
       <div class="video-frame-wrap">
-        <!-- YouTube videonu buraya əlavə et: src="" içinə "embed" linkini yaz.
-             Nümunə: src="https://www.youtube.com/embed/VIDEO_ID" -->
         <iframe src="" title="Debian Server quraşdırılması video dərsi" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
@@ -71,56 +69,64 @@
         <span class="step-num"></span>
         <div class="step-body">
           <h4>ISO faylını yüklə</h4>
-          <p><strong>debianproject.org/server/download</strong> ünvanından Debian Server ISO faylını (DVD ISO) kompüterinə yüklə.</p>
+          <p><strong>debian.org</strong> rəsmi saytından Debian "Netinst" (şəbəkə quraşdırıcısı) və ya tam DVD ISO faylını kompüterinə yüklə.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
           <h4>Bootable USB hazırla</h4>
-          <p>Rəsmi tövsiyə olunan <strong>Debian Media Writer</strong> proqramı (və ya Rufus/balenaEtcher) ilə yüklədiyin ISO faylını ən azı 4GB-lıq USB flash karta yaz.</p>
+          <p>Rufus, balenaEtcher və ya Ventoy proqramından istifadə edərək yüklədiyin Debian ISO faylını USB flash karta yazdır.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>USB-dən başlat</h4>
-          <p>USB-ni kompüterə tax, yenidən başlat və BIOS/UEFI menyusunda boot sırasını USB-yə yönləndir.</p>
+          <h4>USB-dən başlat və Quraşdırıcını seç</h4>
+          <p>USB-ni server edəcəyin kompüterə tax, başladarkən BIOS/UEFI menyusundan USB-ni seç. Açılan menyuda <strong>"Graphical Install"</strong> rejimini seç.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>Anaconda quraşdırma sihirbazını izlə</h4>
-          <p>Dil və klaviatura düzümünü seç. "Installation Destination" bölməsində diski seçib "Done" et — Debian avtomatik olaraq LVM+XFS bölgüsü quracaq, yeni başlayanlar üçün bu kifayətdir. "Network & Host Name" addımında mümkünsə statik IP təyin et.</p>
+          <h4>Dil, Şəbəkə və Şifrə tənzimləmələri</h4>
+          <p>Dil və klaviatura düzümünü seç. Şəbəkə ayarlarından sonra sizdən <code>root</code> şifrəsi və əsas istifadəçi (user) hesabı yaratmaq tələb olunacaq. Hər iki şifrəni təhlükəsiz bir yerdə qeyd et.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>Software Selection-da "Headless Management"-i işarələ</h4>
-          <p>Bu, dərslikdəki ən vacib addımdır: "Software Selection" bölməsində <strong>Headless Management</strong> qutusunu işarələ. Bu seçim Cockpit veb panelini avtomatik quraşdırır və aktivləşdirir — sonra əlavə heç nə etməyəcəksən.</p>
+          <h4>Disk Bölgüsü (Partitioning)</h4>
+          <p>Yeni başlayanlar üçün <strong>"Guided - use entire disk"</strong> seçimi idealdır. Diski seç və sistemin avtomatik olaraq kök (root) və swap bölmələrini yaratmasına icazə ver.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>İstifadəçi hesabı yarat</h4>
-          <p>"User Creation" ekranında öz adın/şifrənlə hesab yarat və <strong>"Make this user administrator"</strong> qutusunu mütləq işarələ — bu, sudo hüququ verir.</p>
+          <h4>Software Selection (Vacib Addım!)</h4>
+          <p>Proqram təminatı seçimi ekranında serverin yüngül və performanslı olması üçün masaüstü mühitlərinin (GNOME, XFCE və s.) işarəsini yığışdır. Yalnız <strong>"SSH server"</strong> və <strong>"standard system utilities"</strong> seçimlərini aktiv saxla.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>Bitir və yenidən başlat</h4>
-          <p>"Begin Installation" düyməsinə bas, quraşdırma tamamlandıqda USB-ni çıxar və kompüteri yenidən başlat.</p>
+          <h4>GRUB Boot Loader-i quraşdır və bitir</h4>
+          <p>Quraşdırmanın sonunda GRUB yükləyicisini əsas diskinə yazmağa icazə ver ("Yes"). Proses bitdikdən sonra USB-ni çıxar və sistemi yenidən başlat (Reboot).</p>
         </div>
       </div>
+    </div>
+
+    <div class="section-divider"><span>Sistem Hazırlığı və SSH</span></div>
+
+    <h2>2. İlk Ayarlar və SSH Qoşulması</h2>
+    <p class="lead">Server qoşulduqdan sonra onu digər kompüterdən terminal vasitəsilə idarə edəcəyik.</p>
+    
+    <div class="steps">
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>Başqa kompüterdən SSH ilə qoşul</h4>
-          <p>Debian Server-də SSH standart olaraq aktivdir. Eyni şəbəkədəki başqa kompüterdən terminal aç:</p>
+          <h4>SSH ilə serverə bağlan</h4>
+          <p>Eyni şəbəkədə olan digər kompüterinizin terminalından serverə qoşulun:</p>
           <div class="term">
             <div class="term-label">terminal</div>
             <pre>ssh istifadeci_adin@server_ip_unvani</pre>
@@ -130,57 +136,81 @@
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>Sistemi yenilə</h4>
+          <h4>Sudo hüquqlarını aktivləşdir (Əgər aktiv deyilsə)</h4>
+          <p>Debian-da yeni istifadəçini sudo qrupuna əlavə etmək üçün əvvəlcə root rejiminə keçib lazımi paketi quraşdırırıq:</p>
           <div class="term">
             <div class="term-label">terminal</div>
-            <pre>sudo dnf update -y</pre>
+            <pre>su -
+apt update && apt install sudo -y
+usermod -aG sudo istifadeci_adin
+exit</pre>
           </div>
+          <p><code>exit</code> etdikdən sonra terminalı bağlayıb yenidən SSH ilə daxil olun ki, sudo hüquqları aktivləşsin.</p>
         </div>
       </div>
     </div>
 
-    <div class="section-divider"><span>Cockpit</span></div>
+    <div class="section-divider"><span>Cockpit Paneli</span></div>
 
-    <h2>2. Cockpit necə istifadə olunur?</h2>
-    <p class="lead" style="margin-bottom:8px;">Cockpit — Debian Server-in özündə hazır gələn, brauzerdən istifadə olunan idarəetmə panelidir. "Headless Management" seçilibsə, əlavə quraşdırmaya ehtiyac yoxdur — birbaşa istifadəyə hazırdır.</p>
+    <h2>3. Cockpit Veb Panelinin Quraşdırılması</h2>
+    <p class="lead">Cockpit — serverin resurslarını (CPU, RAM, Disk, Şəbəkə) brauzerdən izləmək və idarə etmək üçün yüngül idarəetmə panelidir.</p>
 
     <div class="steps">
       <div class="step">
         <span class="step-num"></span>
         <div class="step-body">
-          <h4>Brauzerdən aç</h4>
-          <p>İstənilən kompüter/telefonun brauzerində <code>https://server_ip_unvani:9090</code> ünvanını aç. Sertifikat xəbərdarlığı çıxa bilər (Cockpit özünütəsdiqləyən sertifikatdan istifadə edir) — "Advanced" → "Davam et" seçərək keç.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num"></span>
-        <div class="step-body">
-          <h4>Sistem hesabınla daxil ol</h4>
-          <p>Quraşdırma zamanı yaratdığın istifadəçi adı/şifrə ilə giriş et. Ayrıca hesab yaratmağa ehtiyac yoxdur.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num"></span>
-        <div class="step-body">
-          <h4>Paneli tanı</h4>
-          <p>Sol menyudan Overview (CPU/yaddaş/disk), Services, Terminal, Storage və Networking bölmələrinə baxa, serverini tamamilə brauzerdən idarə edə bilərsən.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num"></span>
-        <div class="step-body">
-          <h4>Konteynerləri idarə et (Podman)</h4>
-          <p>Cockpit-ə Docker-uyğun konteynerləri idarə etmək üçün Podman modulunu əlavə et:</p>
+          <h4>Cockpit-i sistemə yüklə</h4>
+          <p>Aşağıdakı komanda ilə Debian repozitoriyasından rəsmi Cockpit paketini quraşdırın:</p>
           <div class="term">
             <div class="term-label">terminal</div>
-            <pre>sudo dnf install cockpit-podman -y</pre>
+            <pre>sudo apt install cockpit -y</pre>
           </div>
-          <p>Brauzeri yenilə — sol menyuda "Podman containers" bölməsi görünəcək. Buradan Jellyfin, Nextcloud kimi tətbiqləri UI üzərindən işə sala bilərsən.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Brauzerdən daxil ol</h4>
+          <p>İstənilən brauzerdə <code>https://server_ip_unvani:9090</code> ünvanına keçid edin. Təhlükəsizlik xəbərdarlığını ("Advanced" -> "Proceed") keçərək server istifadəçi adı və şifrənizlə daxil olun.</p>
         </div>
       </div>
     </div>
 
-    <div class="note"><strong>Qeyd:</strong> CasaOS rəsmi olaraq Debian-nı dəstəkləmir (dnf paket uyğunsuzluqları quraşdırmanı tez-tez uğursuz edir), ona görə bu dərslikdə Debian-nın öz hazır panelini — Cockpit-i istifadə etdik. Ubuntu Server və ya Raspberry Pi OS-da CasaOS istəyirsənsə, digər dərsliklərimizə bax.</div>
+    <div class="section-divider"><span>CasaOS İnteqrasiyası</span></div>
+
+    <h2>4. CasaOS Quraşdırılması (Docker & App Store)</h2>
+    <p class="lead">CasaOS — Debian üzərində işləyən, Docker konteynerlərini tək kliklə idarə etməyə imkan verən, Nextcloud, Plex, Jellyfin kimi tətbiqləri rahatca qurmağınızı təmin edən mükəmməl bir ev bulud interfeysidir.</p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>CasaOS-i tək komanda ilə quraşdır</h4>
+          <p>Rəsmi CasaOS quraşdırma skriptini işə salın. Bu skript avtomatik olaraq Docker mühitini və lazımi asılılıqları tənzimləyəcək:</p>
+          <div class="term">
+            <div class="term-label">terminal</div>
+            <pre>curl -fsSL https://get.casaos.io | sudo bash</pre>
+          </div>
+          <p>Quraşdırma bir neçə dəqiqə çəkə bilər. Bitdikdən sonra terminalda sizə giriş linki göstəriləcək.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>CasaOS Dashboard-a daxil ol</h4>
+          <p>Brauzerinizdə birbaşa <code>http://server_ip_unvani</code> (port yazmadan, standart port 80-dir) yazaraq daxil olun. İlk açılışda sizdən CasaOS üçün ana admin hesabı yaratmağınız istəniləcək.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>App Store-dan tətbiqləri kəşf et</h4>
+          <p>CasaOS daxilindəki "App Store" bölməsinə daxil olaraq Jellyfin, Pi-hole, Transmission və ya qovluq paylaşımı (Samba) xidmətlərini heç bir terminal komandası yazmadan, tək kliklə quraşdırıb istifadə edə bilərsiniz.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><strong>Məsləhət:</strong> Debian Serverinizdə həm Cockpit (Port: 9090) həm də CasaOS (Port: 80) eyni anda problemsiz işləyir. Cockpit-i sistem yeniləmələri və terminal işləri üçün, CasaOS-i isə Docker tətbiqləri və fayl meneceri kimi istifadə edərək güclü bir ev serveri (NAS) əldə edirsiniz.</div>
   </div>
 </section>
 

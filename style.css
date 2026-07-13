@@ -415,6 +415,3 @@ a:focus-visible, button:focus-visible, .nav-link:focus-visible {
 @media (max-width: 720px) {
   .social-grid { grid-template-columns: 1fr; }
 }
-
-/* Debian page tweaks */
-.os-debian{border-left:4px solid #d70a53;}

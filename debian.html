@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debian Server Necə Qurulur? + Cockpit Panel | MyServerTutorialAz</title>
+<meta name="description" content="Debian Server-i sıfırdan quraşdırmaq və hazır gələn Cockpit veb panelindən istifadə etmək üçün addım-addım dərslik. Terminal komandaları və Azərbaycan dilində tam bələdçi.">
+<meta name="keywords" content="Debian Server quraşdırma, Debian Server dərslik, Cockpit Debian, ev serveri, self hosting Azərbaycan">
+<meta name="author" content="MyServerTutorialAz">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ozserver.az/debian.html">
+<meta name="theme-color" content="#15120D">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="az_AZ">
+<meta property="og:title" content="Debian Server Necə Qurulur? + Cockpit Panel">
+<meta property="og:description" content="Sıfırdan Debian Server quraşdırma və Cockpit ilə ev serveri idarə etmə dərsliyi — Azərbaycan dilində.">
+<meta property="og:url" content="https://ozserver.az/debian.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23221D16'/%3E%3Ccircle cx='10' cy='16' r='3' fill='%23D68C45'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%237FA66B'/%3E%3Ccircle cx='22' cy='16' r='3' fill='%236FA0BE'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"></span><span class="brand-mark-space"></span>MyServerTutorialAz
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Ana Səhifə</a>
+      <a href="index.html#tutoriallar" class="nav-link is-active">Tutoriallar</a>
+      <a href="haqqimizda.html" class="nav-link">Haqqımızda</a>
+      <button class="theme-toggle" data-theme-toggle aria-label="Tema dəyiş">☾</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span>UNIT · FEDORA SERVER</div>
+    <h1>Debian Server necə qurulur?</h1>
+    <p class="lead">Sıfırdan Debian Server quraşdırılması və üzərində hazır gələn Cockpit veb panelindən istifadə edərək serverini brauzerdən idarə etmək — komandaları ilə birgə, addım-addım.</p>
+    <div class="page-head-meta">
+      <span class="badge badge-mid">Çətinlik: Orta</span>
+      <span class="badge">Təxmini vaxt: ~25 dəqiqə</span>
+      <span class="badge">Lazımdır: köhnə kompüter/mini PC, min. 4GB USB</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="video-slot">
+      <div class="video-slot-label">▶ Video Bələdçi — Debian Server Quraşdırılması</div>
+      <div class="video-frame-wrap">
+        <!-- YouTube videonu buraya əlavə et: src="" içinə "embed" linkini yaz.
+             Nümunə: src="https://www.youtube.com/embed/VIDEO_ID" -->
+        <iframe src="" title="Debian Server quraşdırılması video dərsi" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <h2>1. Debian Server quraşdırılması</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>ISO faylını yüklə</h4>
+          <p><strong>debianproject.org/server/download</strong> ünvanından Debian Server ISO faylını (DVD ISO) kompüterinə yüklə.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Bootable USB hazırla</h4>
+          <p>Rəsmi tövsiyə olunan <strong>Debian Media Writer</strong> proqramı (və ya Rufus/balenaEtcher) ilə yüklədiyin ISO faylını ən azı 4GB-lıq USB flash karta yaz.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>USB-dən başlat</h4>
+          <p>USB-ni kompüterə tax, yenidən başlat və BIOS/UEFI menyusunda boot sırasını USB-yə yönləndir.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Anaconda quraşdırma sihirbazını izlə</h4>
+          <p>Dil və klaviatura düzümünü seç. "Installation Destination" bölməsində diski seçib "Done" et — Debian avtomatik olaraq LVM+XFS bölgüsü quracaq, yeni başlayanlar üçün bu kifayətdir. "Network & Host Name" addımında mümkünsə statik IP təyin et.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Software Selection-da "Headless Management"-i işarələ</h4>
+          <p>Bu, dərslikdəki ən vacib addımdır: "Software Selection" bölməsində <strong>Headless Management</strong> qutusunu işarələ. Bu seçim Cockpit veb panelini avtomatik quraşdırır və aktivləşdirir — sonra əlavə heç nə etməyəcəksən.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>İstifadəçi hesabı yarat</h4>
+          <p>"User Creation" ekranında öz adın/şifrənlə hesab yarat və <strong>"Make this user administrator"</strong> qutusunu mütləq işarələ — bu, sudo hüququ verir.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Bitir və yenidən başlat</h4>
+          <p>"Begin Installation" düyməsinə bas, quraşdırma tamamlandıqda USB-ni çıxar və kompüteri yenidən başlat.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Başqa kompüterdən SSH ilə qoşul</h4>
+          <p>Debian Server-də SSH standart olaraq aktivdir. Eyni şəbəkədəki başqa kompüterdən terminal aç:</p>
+          <div class="term">
+            <div class="term-label">terminal</div>
+            <pre>ssh istifadeci_adin@server_ip_unvani</pre>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Sistemi yenilə</h4>
+          <div class="term">
+            <div class="term-label">terminal</div>
+            <pre>sudo dnf update -y</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"><span>Cockpit</span></div>
+
+    <h2>2. Cockpit necə istifadə olunur?</h2>
+    <p class="lead" style="margin-bottom:8px;">Cockpit — Debian Server-in özündə hazır gələn, brauzerdən istifadə olunan idarəetmə panelidir. "Headless Management" seçilibsə, əlavə quraşdırmaya ehtiyac yoxdur — birbaşa istifadəyə hazırdır.</p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Brauzerdən aç</h4>
+          <p>İstənilən kompüter/telefonun brauzerində <code>https://server_ip_unvani:9090</code> ünvanını aç. Sertifikat xəbərdarlığı çıxa bilər (Cockpit özünütəsdiqləyən sertifikatdan istifadə edir) — "Advanced" → "Davam et" seçərək keç.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Sistem hesabınla daxil ol</h4>
+          <p>Quraşdırma zamanı yaratdığın istifadəçi adı/şifrə ilə giriş et. Ayrıca hesab yaratmağa ehtiyac yoxdur.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Paneli tanı</h4>
+          <p>Sol menyudan Overview (CPU/yaddaş/disk), Services, Terminal, Storage və Networking bölmələrinə baxa, serverini tamamilə brauzerdən idarə edə bilərsən.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num"></span>
+        <div class="step-body">
+          <h4>Konteynerləri idarə et (Podman)</h4>
+          <p>Cockpit-ə Docker-uyğun konteynerləri idarə etmək üçün Podman modulunu əlavə et:</p>
+          <div class="term">
+            <div class="term-label">terminal</div>
+            <pre>sudo dnf install cockpit-podman -y</pre>
+          </div>
+          <p>Brauzeri yenilə — sol menyuda "Podman containers" bölməsi görünəcək. Buradan Jellyfin, Nextcloud kimi tətbiqləri UI üzərindən işə sala bilərsən.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><strong>Qeyd:</strong> CasaOS rəsmi olaraq Debian-nı dəstəkləmir (dnf paket uyğunsuzluqları quraşdırmanı tez-tez uğursuz edir), ona görə bu dərslikdə Debian-nın öz hazır panelini — Cockpit-i istifadə etdik. Ubuntu Server və ya Raspberry Pi OS-da CasaOS istəyirsənsə, digər dərsliklərimizə bax.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-brand">MyServerTutorialAz — © 2026. Bütün dərsliklər pulsuzdur.</span>
+    <div class="footer-links">
+      <a href="index.html">Ana Səhifə</a>
+      <a href="index.html#tutoriallar">Tutoriallar</a>
+      <a href="haqqimizda.html">Haqqımızda</a>
+      <a href="https://github.com/engineer948" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://youtube.com/@MyServerTutorialAz" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://discord.gg/" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
